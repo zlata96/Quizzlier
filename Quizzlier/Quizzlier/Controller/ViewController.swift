@@ -11,9 +11,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var firstAnswer: UIButton!
-    @IBOutlet weak var secondAnswer: UIButton!
-    @IBOutlet weak var thirdAnswer: UIButton!
+    @IBOutlet weak var firstAnswerButton: UIButton!
+    @IBOutlet weak var secondAnswerButton: UIButton!
+    @IBOutlet weak var thirdAnswerButton: UIButton!
 
     var quizBrain = QuizBrain()
     
@@ -39,12 +39,12 @@ class ViewController: UIViewController {
     
     @objc func updateUI(){
         questionLabel.text = quizBrain.getQuestionText()
-        firstAnswer.backgroundColor = UIColor.clear
-        secondAnswer.backgroundColor = UIColor.clear
-        thirdAnswer.backgroundColor = UIColor.clear
-        firstAnswer.setTitle(quizBrain.putFirstAnswer(), for: .normal)
-        secondAnswer.setTitle(quizBrain.putSecondAnswer(), for: .normal)
-        thirdAnswer.setTitle(quizBrain.putThirdAnswer(), for: .normal)
+        firstAnswerButton.backgroundColor = UIColor.clear
+        secondAnswerButton.backgroundColor = UIColor.clear
+        thirdAnswerButton.backgroundColor = UIColor.clear
+        firstAnswerButton.setTitle(quizBrain.putAnswer(with: 0), for: .normal)
+        secondAnswerButton.setTitle(quizBrain.putAnswer(with: 1), for: .normal)
+        thirdAnswerButton.setTitle(quizBrain.putAnswer(with: 2), for: .normal)
         progressBar.progress = quizBrain.getProgress()
         scoreLabel.text = "Score: \(quizBrain.getScore())"
     }

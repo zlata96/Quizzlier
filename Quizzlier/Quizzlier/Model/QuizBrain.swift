@@ -54,16 +54,8 @@ struct QuizBrain {
         return score 
     }
     
-    func putFirstAnswer() -> String {
-        return quiz[questionNumber].answers[0]
-    }
-    
-    func putSecondAnswer() -> String {
-        return quiz[questionNumber].answers[1]
-    }
-    
-    func putThirdAnswer() -> String {
-        return quiz[questionNumber].answers[2]
+    func putAnswer(with index: Int) -> String {
+        return quiz[questionNumber].answers[index]
     }
 }
 
